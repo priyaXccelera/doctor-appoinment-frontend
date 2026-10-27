@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas: 248 250 252;
+  --card: 255 255 255;
+  --ink: 15 23 42;
+  --muted: 100 116 139;
+  --line: 226 232 240;
+  --primary: 15 118 110;
+  --primary-soft: 240 253 250;
+  --primary-text: 15 118 110;
+  --success: 22 101 52;
+  --success-soft: 220 252 231;
+  --warn: 146 64 14;
+  --warn-soft: 254 243 199;
+  --info: 30 64 175;
+  --info-soft: 219 234 254;
+  --danger: 153 27 27;
+  --danger-soft: 254 226 226;
+  --violet: 91 33 182;
+  --violet-soft: 237 233 254;
+  --neutral: 55 65 81;
+  --neutral-soft: 243 244 246;
+}
+
+.dark {
+  --canvas: 11 18 32;
+  --card: 17 27 45;
+  --ink: 226 232 240;
+  --muted: 148 163 184;
+  --line: 38 52 74;
+  --primary: 15 118 110;
+  --primary-soft: 19 56 56;
+  --primary-text: 94 234 212;
+  --success: 134 239 172;
+  --success-soft: 20 60 38;
+  --warn: 252 211 77;
+  --warn-soft: 66 45 14;
+  --info: 147 197 253;
+  --info-soft: 30 41 80;
+  --danger: 252 165 165;
+  --danger-soft: 80 25 25;
+  --violet: 196 181 253;
+  --violet-soft: 50 35 90;
+  --neutral: 209 213 219;
+  --neutral-soft: 40 48 60;
+}
+
+body {
+  @apply bg-canvas text-ink font-sans antialiased;
+}
+
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-canvas;
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-lg border border-line bg-card px-3 py-2 text-sm text-ink placeholder:text-muted focus:border-primary;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-dark;
+  }
+  .btn-outline {
+    @apply btn border border-primary text-primary-text hover:bg-primary-soft;
+  }
+  .btn-ghost {
+    @apply btn border border-line text-ink hover:bg-primary-soft;
+  }
+  .btn-danger {
+    @apply btn bg-danger-soft text-danger hover:opacity-80;
+  }
+  .card {
+    @apply rounded-xl border border-line bg-card shadow-card;
+  }
+}
